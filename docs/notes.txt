@@ -1,0 +1,1 @@
+find . -mtime -1 -name '*' -printf "%TY-%Tm-%Td %Tc %p\n"
