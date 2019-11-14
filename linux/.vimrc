@@ -36,7 +36,6 @@ else
     " cannot change font
 endif
 
-
 " Setup windows-like CTRL-C and CTRL-V
 if has("clipboard")
     " CTRL-X and SHIFT-Del are Cut
@@ -45,16 +44,18 @@ if has("clipboard")
 
     " CTRL-C and CTRL-Insert are Copy
     vnoremap <C-C> "+y
-    inoremap <C-C> <C-o>"+y
-    " vnoremap <C-Insert> "+y
+    vnoremap <C-Insert> "+y
 
     " CTRL-V and SHIFT-Insert are Paste
-    map <C-V> "+gP
-    inoremap <C-V> <C-o>"+gP
-    " map <S-Insert> "+gP
+    map <C-V>		"+gP
+    map <S-Insert>		"+gP
 
-    cmap <C-V> <C-R>+
-    " cmap <S-Insert> <C-R>+
+    cmap <C-V>		<C-R>+
+    cmap <S-Insert>		<C-R>+
+endif
+if 1
+    exe 'inoremap <script> <C-V> <C-G>u' . paste#paste_cmd['i']
+    exe 'vnoremap <script> <C-V> ' . paste#paste_cmd['v']
 endif
 
 " Mini Buffer Explorer <minibufexpl.vim>
